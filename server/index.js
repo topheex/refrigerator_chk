@@ -4,11 +4,13 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3000;
 
-// 미들웨어 설정
-app.use(cors());
-app.use(express.json());
+app.listen(port, '0.0.0.0', () => {
+  console.log(`서버가 모든 네트워크(0.0.0.0:${port})에서 실행 중입니다.`);
+});
+
+// --------------------
 
 // 데이터베이스 초기화
 const db = new Database('refrigerator.db');

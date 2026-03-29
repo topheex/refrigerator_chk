@@ -12,7 +12,7 @@ import {
   addMonths, 
   subMonths 
 } from 'date-fns';
-import { ko } from 'date-fns/locale';
+// import { ko } from 'date-fns/locale'; // 삭제됨
 import { 
   Trash2, 
   Plus, 
