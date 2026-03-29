@@ -48,7 +48,10 @@ app.delete('/api/foods/:id', (req, res) => {
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // SPA를 위한 설정 (모든 요청을 index.html로 리다이렉트)
-app.get('/*', (req, res) => {
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
